@@ -1,0 +1,649 @@
+{
+	"info": {
+		"_postman_id": "924a6251-5d93-4271-8da2-c3fca3002c4d",
+		"name": "integracion-midas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LOGIN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6f896357-89cb-47fd-8b76-594f69f1c003",
+						"type": "text/javascript",
+						"exec": [
+							"postman.setEnvironmentVariable(\"token\", postman.getResponseHeader(\"Authorization\"));"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "sa",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "sa",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Take station",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"experimentId\":980,\r\n\t\"line\":\"10\",\r\n\t\"start\":\"2018-09-25 11:59:32\",\r\n\t\"duration\":\"00d00h00m20s\",\r\n\t\"device\":\"<ARM001>\",\r\n\t\"command\":\"TAKE STATION3.4\",\r\n\t\"projectId\":960\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/controller/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"controller",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IoT Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7e860800-bb79-4e34-93da-4737a68ae16b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serial\": 100,\r\n    \"firmware\": \"fmw\",\r\n    \"action\": \"LOGIN\",\r\n    \"status\": null,\r\n    \"sessionid\": 0,\r\n    \"temperature\": null,\r\n    \"time\": null,\r\n    \"data\": null,\r\n    \"result\": null\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/instructions/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"instructions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IoT POLL 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serial\": 100,\r\n    \"firmware\": \"fmw\",\r\n    \"action\": \"POLL\",\r\n    \"status\": \"idle\",\r\n    \"sessionid\": 1,\r\n    \"temperature\": null,\r\n    \"time\": null,\r\n    \"data\": null,\r\n    \"result\": null\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/instructions/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"instructions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IoT Send DATA ?",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serial\": 100,\r\n    \"firmware\": \"fmw\",\r\n    \"action\": \"POLL\",\r\n    \"status\": \"idle\",\r\n    \"sessionid\": 1,\r\n    \"temperature\": null,\r\n    \"time\": null,\r\n    \"data\": null,\r\n    \"result\": null\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/instructions/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"instructions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hold filler",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"experimentId\":980,\r\n\t\"line\":\"20\",\r\n\t\"start\":\"2018-09-25 11:59:52\",\r\n\t\"duration\":\"00d00h00m20s\",\r\n\t\"device\":\"<ARM001>\",\r\n\t\"command\":\"HOLD <FILLER001>\",\r\n\t\"projectId\":960\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/controller/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"controller",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IoT POLL 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serial\": 100,\r\n    \"firmware\": \"fmw\",\r\n    \"action\": \"POLL\",\r\n    \"status\": \"idle\",\r\n    \"sessionid\": 1,\r\n    \"temperature\": null,\r\n    \"time\": null,\r\n    \"data\": null,\r\n    \"result\": null\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/instructions/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"instructions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IoT Send DATA 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serial\": 100,\r\n    \"firmware\": \"fmw\",\r\n    \"action\": \"POLL\",\r\n    \"status\": \"idle\",\r\n    \"sessionid\": 1,\r\n    \"temperature\": null,\r\n    \"time\": null,\r\n    \"data\": null,\r\n    \"result\": null\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/instructions/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"instructions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fill",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"experimentId\":980,\r\n\t\"line\":\"30\",\r\n\t\"start\":\"2018-09-25 12:00:12\",\r\n\t\"duration\":\"00d00h01m00s\",\r\n\t\"device\":\"<FILLER001>\",\r\n\t\"command\":\"FILL\",\r\n\t\"projectId\":960\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/controller/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"controller",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Drop reader",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"experimentId\":980,\r\n\t\"line\":\"40\",\r\n\t\"start\":\"2018-09-25 12:01:12\",\r\n\t\"duration\":\"00d00h00m20s\",\r\n\t\"device\":\"<ARM001>\",\r\n\t\"command\":\"DROP <READER001>\",\r\n\t\"projectId\":960\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/controller/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"controller",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read 0",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"experimentId\":980,\r\n\t\"line\":\"50\",\r\n\t\"start\":\"2018-09-25 12:01:32\",\r\n\t\"duration\":\"00d00h05m00s\",\r\n\t\"device\":\"<READER001>\",\r\n\t\"command\":\"READ 0\",\r\n\t\"projectId\":960\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/controller/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"controller",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Take reader",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"experimentId\":980,\r\n\t\"line\":\"70\",\r\n\t\"start\":\"2018-09-25 12:07:02\",\r\n\t\"duration\":\"00d00h00m20s\",\r\n\t\"device\":\"<ARM001>\",\r\n\t\"command\":\"TAKE <READER001>\",\r\n\t\"projectId\":960\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/controller/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"controller",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Drop 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"experimentId\":980,\r\n\t\"line\":\"80\",\r\n\t\"start\":\"2018-09-25 12:07:22\",\r\n\t\"duration\":\"00d00h00m20s\",\r\n\t\"device\":\"<ARM001>\",\r\n\t\"command\":\"DROP STATION3.4\",\r\n\t\"projectId\":960\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/controller/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"controller",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Take 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"experimentId\":980,\r\n\t\"line\":\"100\",\r\n\t\"start\":\"2018-09-25 12:09:42\",\r\n\t\"duration\":\"00d00h00m20s\",\r\n\t\"device\":\"<ARM001>\",\r\n\t\"command\":\"TAKE STATION3.4\",\r\n\t\"projectId\":960\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/controller/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"controller",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Drop reader",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"experimentId\":980,\r\n\t\"line\":\"110\",\r\n\t\"start\":\"2018-09-25 12:10:02\",\r\n\t\"duration\":\"00d00h00m20s\",\r\n\t\"device\":\"<ARM001>\",\r\n\t\"command\":\"DROP <READER001>\",\r\n\t\"projectId\":960\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/controller/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"controller",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"experimentId\":980,\r\n\t\"line\":\"120\",\r\n\t\"start\":\"2018-09-25 12:10:22\",\r\n\t\"duration\":\"00d00h05m00s\",\r\n\t\"device\":\"<READER001>\",\r\n\t\"command\":\"READ\",\r\n\t\"projectId\":960\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/controller/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"controller",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Take reader",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"experimentId\":980,\r\n\t\"line\":\"100\",\r\n\t\"start\":\"2018-09-25 12:09:42\",\r\n\t\"duration\":\"00d00h00m20s\",\r\n\t\"device\":\"<ARM001>\",\r\n\t\"command\":\"TAKE STATION3.4\",\r\n\t\"projectId\":960\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/controller/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"controller",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Drop trash",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"experimentId\":980,\r\n\t\"line\":\"150\",\r\n\t\"start\":\"2018-09-25 12:16:12\",\r\n\t\"duration\":\"00d00h00m20s\",\r\n\t\"device\":\"<ARM001>\",\r\n\t\"command\":\"DROP TRASH\",\r\n\t\"projectId\":960\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/controller/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"controller",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
