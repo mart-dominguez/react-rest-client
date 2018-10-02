@@ -8,13 +8,15 @@ class Tester extends Component {
     return (
       <div className="App">
       <h1>instruccionNro: {this.props.instruccionNro}</h1>
-      <h3>Current Session {this.props.currentIoTSession}</h3>
+      <h3>Current Session ARM {this.props.currentIoTSessionARM}</h3>
+      <h3>Current Session Reader {this.props.currentIoTSessionReader}</h3>
       <p>
        {JSON.stringify(this.props.instrucciones[this.props.instruccionNro])}
       </p>
        <Peticion procesarRespuesta={this.props.procesar}
                  indiceEjecutado={this.props.instruccionNro}
-                 currentIoTSession={this.props.currentIoTSession}
+                 currentIoTSessionARM={this.props.currentIoTSessionARM}
+                 currentIoTSessionReader={this.props.currentIoTSessionReader}
                  instruccion={this.props.instrucciones[this.props.instruccionNro]}
                  token={this.props.token}></Peticion>
        <Respuesta

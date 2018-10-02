@@ -4,9 +4,13 @@ import './App.css';
 import Tester from './tester/Tester';
 
 const SERIAL_ARM = 1234;
+const SERIAL_READER = 86;
+const SERIAL_FILLER = 100;
+const SESION_ARM = 25;
+const SESION_FILLER = 20;
+const SESION_READER = 18;
 const EXPERIMENT_ID = 980;
 const PROJECT_ID = 786;
-const SESSION_ID =0;
 const instrucciones = [
   {
     descrip: "GET_TOKEN",
@@ -14,34 +18,17 @@ const instrucciones = [
     tipo: 1,
     datos: null,
     respuesta:null
-  },
+  },  
   {
-    descrip: "IOT LOGIN",
+    descrip: "IOT POLL ARM",
     url: "/instructions/",
-    tipo: 2,
-    datos: {
-      "serial": SERIAL_ARM,
-      "firmware": "fmw",
-      "action": "LOGIN",
-      "status": null,
-      "sessionid": 0,
-      "temperature": null,
-      "time": null,
-      "data": null,
-      "result": null
-    },
-    respuesta:null
-  },
-  {
-    descrip: "IOT POLL 1",
-    url: "/instructions/",
-    tipo: 2,
+    tipo: 20,
     datos: {
       "serial": SERIAL_ARM,  
       "firmware": "fmw",  
       "action": "POLL",  
       "status": "idle",
-      "sessionid": SESSION_ID,
+      "sessionid": SESION_ARM,
       "temperature": null,
       "time": null,  
       "data": null,  
@@ -50,31 +37,1032 @@ const instrucciones = [
     respuesta:null
   },
   {
-    descrip: "Take station",
-    url: "/controller/",
-    tipo: 2,
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
     datos: {
-      "experimentId":EXPERIMENT_ID,    
-      "line":"10",    
-      "start":"2018-09-25 11:59:32",    
-      "duration":"00d00h00m20s",    
-      "device":"<ARM001>",    
-      "command":"TAKE STATION3.4",    
-      "projectId":PROJECT_ID
-    
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
     },
     respuesta:null
   },
   {
-    descrip: "IOT POLL 2",
+    descrip: "IOT POLL FILLER",
     url: "/instructions/",
-    tipo: 2,
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
     datos: {
       "serial": SERIAL_ARM,  
       "firmware": "fmw",  
       "action": "POLL",  
       "status": "idle",
-      "sessionid": SESSION_ID,
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },{
+    descrip: "IOT POLL ARM",
+    url: "/instructions/",
+    tipo: 20,
+    datos: {
+      "serial": SERIAL_ARM,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_ARM,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL READER",
+    url: "/instructions/",
+    tipo: 21,
+    datos: {
+      "serial": SERIAL_READER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_READER,
+      "temperature": null,
+      "time": null,  
+      "data": null,  
+      "result": null
+    },
+    respuesta:null
+  },
+  {
+    descrip: "IOT POLL FILLER",
+    url: "/instructions/",
+    tipo: 22,
+    datos: {
+      "serial": SERIAL_FILLER,  
+      "firmware": "fmw",  
+      "action": "POLL",  
+      "status": "idle",
+      "sessionid": SESION_FILLER,
       "temperature": null,
       "time": null,  
       "data": null,  
@@ -88,12 +1076,12 @@ class App extends Component {
   
   constructor(props) {
     super(props);    
-    this.state = { pasos:instrucciones, indiceActual:0,token:null,sessionid:0 };
+    this.state = { pasos:instrucciones, indiceActual:0,token:null,sessionidReader:0,sessionidARM:0 };
     this.ejecutarPaso = this.ejecutarPaso.bind(this);
   }   
 
   ejecutarPaso(indice,respuesta) {
-    console.log("==== respuesta === ");
+    console.log("==== respuesta === "+indice);
     console.log(respuesta);
     let nuevoToken = null;
     let nuevo = this.state.pasos[indice];
@@ -105,7 +1093,14 @@ class App extends Component {
     if(indice===0){
       this.setState({token:respuesta})
     }
-    if(respuesta && respuesta.sessionid) this.setState({sessionid:respuesta.sessionid})
+    if(respuesta && respuesta.sessionid && indice===2) {
+      console.log("SESION READER "+respuesta.sessionid);
+      this.setState({sessionidReader:respuesta.sessionid});
+    }
+    if(respuesta && respuesta.sessionid && indice===1){
+      console.log("SESION ARM "+respuesta.sessionid);
+      this.setState({sessionidARM:respuesta.sessionid});
+    } 
   }
 
   render() {
@@ -114,7 +1109,8 @@ class App extends Component {
        <Tester  instrucciones={this.state.pasos} 
                 instruccionNro={this.state.indiceActual}
                 procesar={this.ejecutarPaso}
-                currentIoTSession={this.state.sessionid}
+                currentIoTSessionARM={this.state.sessionidARM}
+                currentIoTSessionReader={this.state.sessionidReader}
                 token={this.state.token} ></Tester>
       </div>
     );
